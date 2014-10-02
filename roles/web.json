@@ -6,6 +6,7 @@
     "polidog": {
       "nginx-wp": {
         "host": "blog.polidog.jp",
+        "name": "blog.polidog.jp",
         "root": "/var/www/blog"
       }
     },
