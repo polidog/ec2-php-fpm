@@ -1,0 +1,24 @@
+---
+driver:
+  name: ec2
+  aws_access_key_id: <%= ENV["AWS_ACCESS_KEY"] %>
+  aws_secret_access_key: <%= ENV["AWS_SECRET_KEY"] %>
+  aws_ssh_key_id: <%= ENV["AWS_KEY_PAIR"] %>
+  ssh_key: <%= File.expand_path("~/.ssh/#{ENV['AWS_KEY_PAIR']}.pem")%>
+  security_group_ids: ["sg-d2f23fb7"]
+  region: ap-northeast-1
+  require_chef_omnibus: true
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: AmazonLinux
+    driver:
+      image_id: ami-35072834
+      username: ec2-user
+
+suites:
+  - name: default
+    run_list:
+    attributes:
