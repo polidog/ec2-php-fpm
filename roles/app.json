@@ -1,0 +1,32 @@
+{
+  "name": "web",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+   },
+  "override_attributes": {
+    "php": {
+      "packages": [
+        "php55",
+        "php55-devel",
+        "php55-common",
+        "php55-cli",
+        "php55-opcache",
+        "php55-mysqlnd",
+        "php55-gd",
+        "php55-mbstring",
+        "php55-fpm"
+      ],
+      "fpm_user": "nginx",
+      "fpm_group": "nginx"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+	  "php",
+    "polidog::php-fpm"
+  ],
+  "env_run_lists": {
+
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "web",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "polidog": {
+      "nginx-wp": {
+        "host": "blog.polidog.jp",
+        "root": "/var/www/blog"
+      }
+    },
+    "nginx": {
+      "user": "nginx",
+      "group": "nginx"
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "nginx",
+	  "polidog::nginx"
+  ],
+  "env_run_lists": {
+
+  }
+}

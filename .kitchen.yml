@@ -5,8 +5,9 @@ driver:
   aws_secret_access_key: <%= ENV["AWS_SECRET_KEY"] %>
   aws_ssh_key_id: <%= ENV["AWS_KEY_PAIR"] %>
   ssh_key: <%= File.expand_path("~/.ssh/#{ENV['AWS_KEY_PAIR']}.pem")%>
-  security_group_ids: ["sg-d2f23fb7"]
+  security_group_ids: ["sg-7dee2118"]
   region: ap-northeast-1
+  availability_zone: ap-northeast-1a
   require_chef_omnibus: true
 
 provisioner:
@@ -15,10 +16,12 @@ provisioner:
 platforms:
   - name: AmazonLinux
     driver:
-      image_id: ami-35072834
+      image_id: ami-c9562fc8 
       username: ec2-user
 
 suites:
   - name: default
     run_list:
+      - role[web]
+      - role[app]
     attributes:
